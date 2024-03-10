@@ -33,7 +33,7 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         slug: renatodellosso/EnvDotNet
-    - name: Upload coverage reports to Codecov
+    - name: Upload coverage reports to Deepsource
       uses: deepsourcelabs/test-coverage-action@master
       with:
         key: python
