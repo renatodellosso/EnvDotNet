@@ -36,6 +36,6 @@ jobs:
     - name: Upload coverage reports to Deepsource
       uses: deepsourcelabs/test-coverage-action@master
       with:
-        key: python
+        key: csharp
         coverage-file: coverage.xml
         dsn: ${{ secrets.DEEPSOURCE_DSN }}
