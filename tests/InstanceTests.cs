@@ -11,7 +11,7 @@ public class InstanceTests
     public InstanceTests()
     {
         // Dispose the global environment if it exists
-        try { Env.Dispose(); } catch { }
+        try { Env.Dispose(); } catch (EnvNotInittedException) { }
 
         // Generate a temporary file
         string envText = "key1=value";
