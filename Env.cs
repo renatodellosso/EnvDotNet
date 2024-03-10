@@ -2,22 +2,21 @@
 
 namespace EnvDotNet
 {
-    public class Env : IDisposable
+    public class Env
     {
 
         private static Env? instance;
 
-        private ConcurrentDictionary<string, string> env;
+        private readonly ConcurrentDictionary<string, string> Dict;
+
+        public static bool IsInitted => instance != null;
 
         public Env(string filename, bool global = true)
         {
             if (global)
-            {
-                instance?.Dispose();
                 instance = this;
-            }
 
-            env = new ConcurrentDictionary<string, string>();
+            Dict = new ConcurrentDictionary<string, string>();
 
             // Load the file line by line
             string[] lines = File.ReadAllLines(filename);
@@ -28,21 +27,27 @@ namespace EnvDotNet
                 if (parts.Length == 2)
                 {
                     // Add the key and value to the dictionary
-                    env[parts[0]] = parts[1];
+                    Dict[parts[0]] = parts[1];
                 }
             }
         }
 
-        public void Dispose()
+        public static void Init(string filename) => _ = new Env(filename);
+
+        public static void Dispose()
         {
+            if (instance == null)
+                throw new EnvNotInittedException();
+
             instance = null;
         }
 
-        public bool ContainsKey(string key) => env.ContainsKey(key);
+        public bool ContainsKey(string key) => Dict.ContainsKey(key);
 
-        public string this[string key] => env[key];
+        public string this[string key] => Dict[key];
+        public string this[string key, string defaultValue] => Dict.GetValueOrDefault(key, defaultValue);
 
-        public static bool HasKey(string key) => instance?.env.ContainsKey(key) ?? throw new EnvNotInittedException();
+        public static bool HasKey(string key) => instance?.Dict.ContainsKey(key) ?? throw new EnvNotInittedException();
 
         public static string Get(string key) => instance?[key] ?? throw new EnvNotInittedException();
 
@@ -51,9 +56,9 @@ namespace EnvDotNet
             if (instance == null)
                 throw new EnvNotInittedException();
 
-            return instance.env.GetValueOrDefault(key, defaultValue);
+            return instance.Dict.GetValueOrDefault(key, defaultValue);
         }
 
-        public static bool TryGet(string key, out string? value) => instance?.env.TryGetValue(key, out value) ?? throw new EnvNotInittedException();
+        public static bool TryGet(string key, out string? value) => instance?.Dict.TryGetValue(key, out value) ?? throw new EnvNotInittedException();
     }
 }
