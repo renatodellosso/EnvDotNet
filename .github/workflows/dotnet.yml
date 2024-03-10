@@ -26,9 +26,3 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: Report test coverage to DeepSource
-      uses: deepsourcelabs/test-coverage-action@master
-      with:
-        key: csharp
-        coverage-file: coverage.xml
-        dsn: ${{ secrets.DEEPSOURCE_DSN }}
