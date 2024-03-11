@@ -6,7 +6,7 @@ namespace EnvDotNet.tests;
 public class InstanceTests
 {
 
-    private Env env;
+    private readonly Env env;
 
     public InstanceTests()
     {
