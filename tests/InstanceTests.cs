@@ -19,7 +19,7 @@ public class InstanceTests
         File.WriteAllText(filename, envText);
 
         // Initialize the environment
-        env = new Env(filename, false);
+        env = new Env(filename);
 
         File.Delete(filename);
     }
