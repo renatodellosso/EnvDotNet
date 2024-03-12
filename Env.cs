@@ -64,7 +64,7 @@ public class Env
     }
 
     /// <returns>Whether the environment contains the given <see cref="key"/>.</returns>
-    public bool ContainsKey(string key) => dict.ContainsKey(key);
+    public bool Contains(string key) => dict.ContainsKey(key);
 
     /// <summary>
     /// Retrieves an environment variable.
@@ -83,7 +83,7 @@ public class Env
 
     /// <returns>Whether the environment contains the given <see cref="key"/>.</returns>
     /// <exception cref="EnvNotInittedException"></exception>
-    public static bool HasKey(string key) => instance?.dict.ContainsKey(key) ?? throw new EnvNotInittedException();
+    public static bool ContainsKey(string key) => instance?.dict.ContainsKey(key) ?? throw new EnvNotInittedException();
 
     /// <summary>
     /// Retrieves an environment variable.

@@ -50,7 +50,7 @@ public class InstanceTests
     [TestMethod]
     public void HasKeyGlobal()
     {
-        Assert.ThrowsException<EnvNotInittedException>(() => Env.HasKey("key1"));
+        Assert.ThrowsException<EnvNotInittedException>(() => Env.ContainsKey("key1"));
     }
 
     [TestMethod]

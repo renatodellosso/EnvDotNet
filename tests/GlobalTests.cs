@@ -46,8 +46,8 @@ public class GlobalTests
     public void HasKey()
     {
         // Test the ContainsKey method
-        Assert.IsTrue(Env.HasKey("key1"));
-        Assert.IsFalse(Env.HasKey("key3"));
+        Assert.IsTrue(Env.ContainsKey("key1"));
+        Assert.IsFalse(Env.ContainsKey("key3"));
     }
 
     [TestMethod]
