@@ -35,8 +35,8 @@ public class InstanceTests
     public void HasKey()
     {
         // Test the ContainsKey method
-        Assert.IsTrue(env.ContainsKey("key1"));
-        Assert.IsFalse(env.ContainsKey("key2"));
+        Assert.IsTrue(env.Contains("key1"));
+        Assert.IsFalse(env.Contains("key2"));
     }
 
     [TestMethod]
