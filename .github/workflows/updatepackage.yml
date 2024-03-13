@@ -22,6 +22,6 @@ jobs:
             - name: Build (Release)
               run: dotnet build --no-restore -c Release /property:Version=1.0.1
             - name: Pack
-              run: dotnet pack -c Release
+              run: dotnet pack -c Release /property:Version=1.0.1
             - name: Push package to Nuget
               run: dotnet nuget push **/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY}}
