@@ -22,9 +22,10 @@ jobs:
               with:
                   token: ${{ secrets.CODECOV_TOKEN }}
                   slug: renatodellosso/EnvDotNet
+                  files: EnvDotNet/coverage.xml
             - name: Upload coverage reports to Deepsource
               uses: deepsourcelabs/test-coverage-action@master
               with:
                   key: csharp
-                  coverage-file: coverage.xml
+                  coverage-file: EnvDotNet/coverage.xml
                   dsn: ${{ secrets.DEEPSOURCE_DSN }}
