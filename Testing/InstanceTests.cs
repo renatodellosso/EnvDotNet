@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace EnvDotNet.tests;
+﻿namespace EnvDotNet.tests;
 
 [TestClass]
 public class InstanceTests
@@ -20,6 +18,20 @@ public class InstanceTests
 
         // Initialize the environment
         env = new Env(filename);
+
+        File.Delete(filename);
+    }
+
+    [TestMethod]
+    public void Constructor()
+    {
+        // Generate a temporary file
+        string envText = "key1=value";
+        string filename = Path.GetTempFileName();
+        File.WriteAllText(filename, envText);
+
+        // Initialize the environment
+        Assert.IsNotNull(new Env(filename));
 
         File.Delete(filename);
     }
