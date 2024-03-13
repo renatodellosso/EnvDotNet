@@ -4,10 +4,6 @@
 name: Build
 
 on:
-    push:
-        branches: ["master"]
-    pull_request:
-        branches: ["master"]
     workflow_call: # Allows the workflow to be manually triggered
 jobs:
     build:
