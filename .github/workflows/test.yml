@@ -19,6 +19,8 @@ jobs:
               run: dotnet test /p:AltCover=true /p:CopyLocalLockFileAssemblies=true /p:AltCoverCobertura=coverage.xml
             - name: Upload coverage reports to Codecov
               uses: codecov/codecov-action@v4.1.0
+              with:
+                  token: ${{ secrets.CODECOV_TOKEN }}
             - name: Upload coverage reports to Deepsource
               uses: deepsourcelabs/test-coverage-action@master
               with:
