@@ -23,5 +23,5 @@ jobs:
                   dotnet-version: 6.0.x
             - name: Restore dependencies
               run: dotnet restore
-            - name: Build
+            - name: Build ({inputs.configuration})
               run: dotnet build --no-restore -c Debug
