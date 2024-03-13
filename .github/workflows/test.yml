@@ -25,5 +25,5 @@ jobs:
               uses: deepsourcelabs/test-coverage-action@master
               with:
                   key: csharp
-                  coverage-file: EnvDotNet/coverage.xml
+                  coverage-file: coverage.xml
                   dsn: ${{ secrets.DEEPSOURCE_DSN }}

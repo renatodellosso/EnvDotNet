@@ -1,4 +1,6 @@
-﻿namespace EnvDotNet.tests;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace EnvDotNet.tests;
 
 [TestClass]
 public class InstanceTests
