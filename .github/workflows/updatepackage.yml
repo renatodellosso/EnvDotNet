@@ -16,7 +16,5 @@ jobs:
 
         steps:
             - uses: actions/checkout@v3
-            - name: Update Package
-              run: |
-                  dotnet pack -c Release
-                  dotnet nuget push bin/Release/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+            - name: Pack
+              run: dotnet pack -c Release
