@@ -9,7 +9,7 @@ on:
             configuration:
                 type: string
                 description: "The build configuration"
-                required: true
+                required: false
                 default: "Debug"
 jobs:
     build:
