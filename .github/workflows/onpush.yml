@@ -15,3 +15,5 @@ jobs:
         uses: ./.github/workflows/updatepackage.yml
         secrets:
             NUGET_KEY: ${{ secrets.NUGET_KEY }}
+        with:
+            version: 1.0.2

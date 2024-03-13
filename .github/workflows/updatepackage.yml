@@ -6,6 +6,11 @@ on:
             NUGET_KEY:
                 description: "The API key for the NuGet package source"
                 required: true
+        inputs:
+            version:
+                type: string
+                description: "The version of the package to update"
+                required: true
 
 jobs:
     update:
@@ -20,8 +25,12 @@ jobs:
             - name: Restore dependencies
               run: dotnet restore
             - name: Build (Release)
-              run: dotnet build --no-restore -c Release /property:Version=1.0.2
+              run: dotnet build --no-restore -c Release /property:Version=${{ inputs.version }}
             - name: Pack
-              run: dotnet pack -c Release /property:Version=1.0.2
+              run: dotnet pack -c Release /property:Version=${{ inputs.version }}
             - name: Push package to Nuget
+              id: push
               run: dotnet nuget push **/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY}}
+            - name: Did not push
+              if: steps.push.outcome == 'failure'
+              run: echo "The package was not pushed to NuGet"
