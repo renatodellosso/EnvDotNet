@@ -29,8 +29,7 @@ jobs:
             - name: Pack
               run: dotnet pack -c Release /property:Version=${{ inputs.version }}
             - name: Push package to Nuget
-              id: push
               run: dotnet nuget push **/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_KEY}}
             - name: Did not push
-              if: steps.push.outcome == 'failure'
+              if: ${{ failure() }}
               run: echo "The package was not pushed to NuGet"
