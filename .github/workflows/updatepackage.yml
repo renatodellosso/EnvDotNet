@@ -23,6 +23,6 @@ jobs:
             - name: Restore dependencies
               run: dotnet restore
             - name: Build (Release)
-              run: dotnet build --no-restore -c Debug
+              run: dotnet build --no-restore -c Release
             - name: Pack
               run: dotnet pack -c Release
