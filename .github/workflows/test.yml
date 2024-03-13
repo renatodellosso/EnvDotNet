@@ -15,7 +15,7 @@ jobs:
 
         steps:
             - uses: actions/checkout@v3
-            - name: Test & generate code coverage
+            - name: Test and generate code coverage
               run: dotnet test /p:AltCover=true /p:CopyLocalLockFileAssemblies=true /p:AltCoverCobertura=coverage.xml
             - name: Upload coverage reports to Codecov
               uses: codecov/codecov-action@v4.1.0
