@@ -4,7 +4,7 @@ on:
     workflow_call: # Allows the workflow to be manually triggered
         secrets:
             NUGET_KEY:
-                description: "The NuGet API key"
+                description: "The API key for the NuGet package source"
                 required: true
 
 jobs:
@@ -24,4 +24,4 @@ jobs:
             - name: Pack
               run: dotnet pack -c Release
             - name: Push package to Nuget
-              run: dotnet nuget push **/*.nupkg --source https://nuget.pkg.github.com/renatodellosso/index.json --api-key ${{ secrets.GITHUB_TOKEN}}
+              run: dotnet nuget push **/*.nupkg --source https://nuget.pkg.github.com/renatodellosso/index.json --api-key ${{ secrets.NUGET_KEY}}

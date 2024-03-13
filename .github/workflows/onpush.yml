@@ -14,4 +14,4 @@ jobs:
             - test
         uses: ./.github/workflows/updatepackage.yml
         secrets:
-            NUGET_KEY: ${{ secrets.GITHUB_TOKEN }}
+            NUGET_KEY: ${{ secrets.NUGET_KEY }}
