@@ -5,6 +5,12 @@ name: Build
 
 on:
     workflow_call: # Allows the workflow to be manually triggered
+        inputs:
+            configuration:
+                type: string
+                description: "The build configuration"
+                required: true
+                default: "Debug"
 jobs:
     build:
         runs-on: ubuntu-latest
