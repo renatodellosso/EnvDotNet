@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Env.Net</Title>
+    <Authors>Renato Dell'Osso</Authors>
+    <Copyright>Copyright 2024 Renato Dell'Osso</Copyright>
+    <PackageProjectUrl>https://github.com/renatodellosso/EnvDotNet</PackageProjectUrl>
+    <Description>Env.Net is a simple library to read environment variables from config files. Docs are here: https://github.com/renatodellosso/EnvDotNet</Description>
+    <SignAssembly>False</SignAssembly>
+    <PublishAot>False</PublishAot>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/renatodellosso/EnvDotNet</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>env, c#, environment, configuration</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="altcover" Version="8.6.125" />
+    <PackageReference Include="Microsoft.CodeCoverage" Version="17.9.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+    <PackageReference Include="MSTest" Version="3.2.2" />
+    <PackageReference Include="MSTest.TestAdapter" Version="3.2.2" />
+    <PackageReference Include="MSTest.TestFramework" Version="3.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
