@@ -18,11 +18,7 @@ jobs:
             - name: Test & generate code coverage
               run: dotnet test /p:AltCover=true /p:CopyLocalLockFileAssemblies=true /p:AltCoverCobertura=coverage.xml
             - name: Upload coverage reports to Codecov
-              uses: codecov/codecov-action@v4.0.1
-              with:
-                  token: ${{ secrets.CODECOV_TOKEN }}
-                  slug: renatodellosso/EnvDotNet
-                  files: EnvDotNet/coverage.xml
+              uses: codecov/codecov-action@v4.1.0
             - name: Upload coverage reports to Deepsource
               uses: deepsourcelabs/test-coverage-action@master
               with:
