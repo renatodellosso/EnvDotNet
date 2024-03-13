@@ -17,9 +17,14 @@
     <RepositoryType>git</RepositoryType>
     <PackageTags>env, c#, environment, configuration</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
     <IsPackable>true</IsPackable>
     <OutputType>Library</OutputType>
+    <FileVersion>$(VersionPrefix)</FileVersion>
+    <Deterministic>false</Deterministic>
+    <Version>$(VersionPrefix)</Version>
   </PropertyGroup>
+
 
   <ItemGroup>
     <None Include="..\LICENSE">
